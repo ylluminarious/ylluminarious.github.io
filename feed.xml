@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>ylluminarious</title>
+  <subtitle>illuminare (v.) "to light, to enlighten" | -ious (suff.) "characterized by"</subtitle>
+  <id>http://www.example.com</id>
+  <link href="http://www.example.com"/>
+  <link href="http://www.example.com/feed.xml" rel="self"/>
+  <updated>2019-04-29T12:46:00-04:00</updated>
+  <author>
+    <name>ylluminarious</name>
+  </author>
+  <entry>
+    <title>About</title>
+    <link rel="alternate" href="http://www.example.com/2019/04/29/about/"/>
+    <id>http://www.example.com/2019/04/29/about/</id>
+    <published>2019-04-29T12:46:00-04:00</published>
+    <updated>2019-04-29T12:58:18-04:00</updated>
+    <author>
+      <name>ylluminarious</name>
+    </author>
+    <summary type="html">Hello! Welcome to my blog. I am a software developer who enjoys making new
+things and I would like to share some of the stuff I’ve learned. I wanted to
+blog for a while, but never had time for it. Now I’m making time because I want
+to have my own space</summary>
+  </entry>
+</feed>

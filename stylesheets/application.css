@@ -26,6 +26,7 @@
    0. normalize.css v3.0.3 | MIT License | git.io/normalize | (minified)
    ========================================================================== */
 
+
 html {
     font-family: sans-serif;
     -ms-text-size-adjust: 100%;
@@ -2251,3 +2252,132 @@ body.page-template .post-title {
    End of file. Animations should be the last thing here. Do not add stuff
    below this point, or it will probably fuck everything up.
    ========================================================================== */
+.highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #d0d0d0;
+  background-color: #151515;
+}
+.highlight .err {
+  color: #151515;
+  background-color: #ac4142;
+}
+.highlight .c, .highlight .cd, .highlight .cm, .highlight .c1, .highlight .cs {
+  color: #505050;
+}
+.highlight .cp {
+  color: #f4bf75;
+}
+.highlight .nt {
+  color: #f4bf75;
+}
+.highlight .o, .highlight .ow {
+  color: #d0d0d0;
+}
+.highlight .p, .highlight .pi {
+  color: #d0d0d0;
+}
+.highlight .gi {
+  color: #90a959;
+}
+.highlight .gd {
+  color: #ac4142;
+}
+.highlight .gh {
+  color: #6a9fb5;
+  background-color: #151515;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #aa759f;
+}
+.highlight .kc {
+  color: #d28445;
+}
+.highlight .kt {
+  color: #d28445;
+}
+.highlight .kd {
+  color: #d28445;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #90a959;
+}
+.highlight .sr {
+  color: #75b5aa;
+}
+.highlight .si {
+  color: #8f5536;
+}
+.highlight .se {
+  color: #8f5536;
+}
+.highlight .nn {
+  color: #f4bf75;
+}
+.highlight .nc {
+  color: #f4bf75;
+}
+.highlight .no {
+  color: #f4bf75;
+}
+.highlight .na {
+  color: #6a9fb5;
+}
+.highlight .m, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mb, .highlight .mx {
+  color: #90a959;
+}
+.highlight .ss {
+  color: #90a959;
+}pre.highlight {
+  word-wrap: normal; }
+  pre.highlight code {
+    white-space: pre; }
+
+body, .content, .site-wrapper {
+  background-color: #373f48;
+  color: #a9a9a9; }
+
+.no-cover.main-header {
+  background-color: #4e5965; }
+
+.no-cover .page-title, .no-cover .page-description {
+  color: #8c99a6; }
+
+h1, h2, h3, h4, h5, h6, .post-footer h4 a {
+  color: #6d7790; }
+
+a {
+  color: #708090; }
+
+code:not(pre > code) {
+  color: #d0d0d0; }
+
+code, pre, hr, .post-footer, textarea, input {
+  border-color: #2E2E2E; }
+
+textarea, input, code {
+  background-color: #151515; }
+
+.author-bio, .read-next-story.no-cover p {
+  color: #a9a9a9; }
+
+.subscribe-button, .read-next-story.no-cover .post:before {
+  color: #fff !important;
+  background-color: #2E2E2E; }
+
+.read-next-story.no-cover {
+  background-color: #4e5965; }
+
+.post::after {
+  background-color: #B4B4B4;
+  border-color: #7D7D7D;
+  box-shadow: #323232 0 0 0 5px; }
+
+.post {
+  border-bottom: #515151 1px solid; }
+
+.menu-button:hover {
+  background-color: #4d4d4d;
+  color: #a9a9a9 !important;
+  border-color: #BFC8CD !important; }
