@@ -22,3 +22,6 @@ gem 'redcarpet', '~> 3.4.0'
 
 # For "summary"-Helper
 gem 'nokogiri', '~> 1.8.0'
+
+# To deploy to Github Pages
+gem 'middleman-gh-pages'
