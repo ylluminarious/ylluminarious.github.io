@@ -5,16 +5,50 @@
   <id>http://www.example.com</id>
   <link href="http://www.example.com"/>
   <link href="http://www.example.com/feed.xml" rel="self"/>
-  <updated>2019-04-29T12:46:00-04:00</updated>
+  <updated>2019-05-23T16:38:00-04:00</updated>
   <author>
     <name>ylluminarious</name>
   </author>
+  <entry>
+    <title>Emacs Mac Port Introduction</title>
+    <link rel="alternate" href="http://www.example.com/2019/05/23/emacs-mac-port-introduction/"/>
+    <id>http://www.example.com/2019/05/23/emacs-mac-port-introduction/</id>
+    <published>2019-05-23T16:38:00-04:00</published>
+    <updated>2019-05-27T17:15:02-04:00</updated>
+    <author>
+      <name>ylluminarious</name>
+    </author>
+    <summary type="html">Valuable Features &amp;amp; Improvements
+
+The Emacs Mac
+Port is an
+excellent distribution of Emacs which greatly improves Emacs’ functionality on
+macOS. It adds native GUI support which provides a slew of nice features. I
+would like to name some of those features</summary>
+  </entry>
+  <entry>
+    <title>How to fix the Emacs Mac Port for multi-tty access</title>
+    <link rel="alternate" href="http://www.example.com/2019/05/23/how-to-fix-the-emacs-mac-port-for-multi-tty-access/"/>
+    <id>http://www.example.com/2019/05/23/how-to-fix-the-emacs-mac-port-for-multi-tty-access/</id>
+    <published>2019-05-23T16:37:00-04:00</published>
+    <updated>2019-05-27T17:15:02-04:00</updated>
+    <author>
+      <name>ylluminarious</name>
+    </author>
+    <summary type="html">Introduction to the Emacs Mac Port
+
+The Emacs Mac
+Port is an
+excellent distribution of Emacs which greatly improves Emacs’ functionality on
+macOS. It adds native GUI support which provides a slew of nice features. It’s
+developed and maintained by Mitsuharu</summary>
+  </entry>
   <entry>
     <title>About</title>
     <link rel="alternate" href="http://www.example.com/2019/04/29/about/"/>
     <id>http://www.example.com/2019/04/29/about/</id>
     <published>2019-04-29T12:46:00-04:00</published>
-    <updated>2019-04-29T12:58:18-04:00</updated>
+    <updated>2019-05-18T20:23:14-04:00</updated>
     <author>
       <name>ylluminarious</name>
     </author>

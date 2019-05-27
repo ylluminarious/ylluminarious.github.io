@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>ylluminarious: How to fix the Emacs Mac Port for multi-tty access</title>
+<meta content='Introduction to the Emacs Mac Port The Emacs Mac Port is an excellent distribution of Emacs which greatly improves Emacs&amp;rsquo; functionality on...' name='description'>
+<meta charset='utf-8'>
+<meta content='width=device-width, initial-scale=1.0' name='viewport'>
+<meta content='IE=edge' http-equiv='X-UA-Compatible'>
+<meta content='True' name='HandheldFriendly'>
+<meta content='ylluminarious' property='og:site_name'>
+<meta content='article' property='og:type'>
+<meta content='How to fix the Emacs Mac Port for multi-tty access' property='og:title'>
+<meta content='Introduction to the Emacs Mac Port The Emacs Mac Port is an excellent distribution of Emacs which greatly improves Emacs&amp;rsquo; functionality on...' property='og:description'>
+<meta content='http://www.example.com/2019/05/23/how-to-fix-the-emacs-mac-port-for-multi-tty-access/' property='og:url'>
+<meta content='2019-05-23' property='article:published_time'>
+<meta content='summary' name='twitter:card'>
+<meta content='How to fix the Emacs Mac Port for multi-tty access' name='twitter:title'>
+<meta content='Introduction to the Emacs Mac Port The Emacs Mac Port is an excellent distribution of Emacs which greatly improves Emacs&amp;rsquo; functionality on...' name='twitter:description'>
+<meta content='http://www.example.com/2019/05/23/how-to-fix-the-emacs-mac-port-for-multi-tty-access/' name='twitter:url'>
+<link rel="alternate" type="application/atom+xml" title="Atom Feed" href="/feed.xml" />
+<link href="/images/favicon.ico" rel="icon" type="image/ico" />
+<link href='//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400' rel='stylesheet' type='text/css'>
+<link href="/stylesheets/application.css" rel="stylesheet" />
+</head>
+<body class='post-template nav-closed'>
+<div class='nav'>
+<h3 class='nav-title'>Menu</h3>
+<a class='nav-close' href='#'>
+<span class='hidden'>Close</span>
+</a>
+<ul>
+<li class='nav-home'>
+<a href='/'>Home</a>
+</li>
+<li class='nav-about'>
+<a href='/2019/04/29/about/'>About</a>
+</li>
+</ul>
+<a class='subscribe-button icon-feed' href='/feed.xml'>Subscribe</a>
+</div>
+<span class='nav-cover'></span>
+
+<div class='site-wrapper'>
+<header class='main-header no-cover post-head'>
+<nav class='main-nav clearfix'>
+<a class='blog-logo' href='/'>
+<img src="/images/the-star-sun-faded-edges.png" alt="ylluminarious" />
+</a>
+<a class='menu-button icon-menu' href='#'>
+<span class='word'>Menu</span>
+</a>
+</nav>
+</header>
+<main class='content' role='main'>
+<article class='post'>
+<header class='post-header'>
+<h1 class='post-title'>How to fix the Emacs Mac Port for multi-tty access</h1>
+<section class='post-meta'>
+<time class='post-date' datetime='2019-05-23'>
+23 May 2019
+</time>
+</section>
+</header>
+<section class='post-content'><h2>Introduction to the Emacs Mac Port</h2>
+
+<p><a href="https://bitbucket.org/mituharu/emacs-mac/src/master/README-mac" rel="nofollow">The Emacs Mac
+Port</a> is an
+excellent distribution of Emacs which greatly improves Emacs&rsquo; functionality on
+macOS. It adds native GUI support which provides a slew of nice features. It&rsquo;s
+developed and maintained by Mitsuharu Yamamoto and it regularly pulls changes
+from GNU Emacs proper, thus staying up-to-date with it. <a href="/2019/05/23/emacs-mac-port-introduction/" rel="nofollow">I&rsquo;ve written a fuller
+article here</a> which provides a
+general introduction to the Emacs Mac Port and why I like it.</p>
+
+<h2>The bug</h2>
+
+<p>Unfortunately, one significant problem I came across when I began to use this
+fork of Emacs was its lack of support for <a href="https://www.emacswiki.org/emacs/MultiTTYSupport" rel="nofollow">multi-tty
+access.</a> This feature is very
+useful when connecting to my computer via SSH because it allows me to access my
+running Emacs session. In other words, multi-tty access lets me SSH into my
+computer and access all my files and buffers in an Emacs terminal frame. FYI,
+for those unfamiliar with Emacs, <a href="http://www.jesshamrick.com/2012/09/10/absolute-beginners-guide-to-emacs/" rel="nofollow">&ldquo;frame&rdquo; is parlance for what is normally
+called a
+window.</a>
+I don&rsquo;t know how many other people make use of this feature, but I&rsquo;ve found it
+extremely nifty for a long time.</p>
+
+<p>Once I got used to this feature, not having it in the Emacs Mac Port became
+vexing. So, I submitted a pull request which added support for this feature. <a href="https://bitbucket.org/mituharu/emacs-mac/pull-requests/2/add-multi-tty-support-to-be-on-par-with/diff" rel="nofollow">My
+pull request can be seen
+here.</a>
+I would like to summarize each patch in my pull request to document them for my
+own sake and for others&rsquo; enrichment, in case anyone wants to help work on this.</p>
+
+<h2>How I fixed the bug</h2>
+
+<ol>
+<li><p><a href="https://bitbucket.org/mituharu/emacs-mac/pull-requests/2/add-multi-tty-support-to-be-on-par-with/diff#chg-lisp/server.el" rel="nofollow">The first
+patch</a>
+involved Lisp code in <code>server.el</code> (specifically in <code>server-process-filter</code>)
+which stopped multi-tty from working on both Windows and the Emacs Mac Port.
+I removed the code which stopped it from working on the Emacs Mac Port. This
+code would have only served to block the underlying fix from working.</p></li>
+<li><p><a href="https://bitbucket.org/mituharu/emacs-mac/pull-requests/2/add-multi-tty-support-to-be-on-par-with/diff#chg-src/frame.c" rel="nofollow">The second
+patch</a>
+involved <code>#ifdef</code> statements in <code>frame.c</code> (specifically in
+<code>make-terminal-frame</code>) which essentially did the same thing in C (but at
+compile-time instead of run-time).</p></li>
+<li><p><a href="https://bitbucket.org/mituharu/emacs-mac/pull-requests/2/add-multi-tty-support-to-be-on-par-with/diff#chg-src/macterm.c" rel="nofollow">The final
+patch</a>
+was the one which actually fixed the problem in <code>macterm.c</code> (specifically in
+<code>mac_mouse_position</code>). This function was in charge of returning the current
+position of the mouse. The way it was written caused any attempt at
+multi-tty access to crash the whole Emacs server, because the bug occurred
+at the C level. You see, since the Emacs Mac Port expects to be working with
+either graphical frames or terminal frames (but not both), it did not know
+how to get the mouse position from the terminal frame because it expected to
+be working with graphical frames only. In order to fix the problem, all I
+had to do was make a variable called <code>sf</code> which would yield the selected
+frame and then make sure that when attempting to fetch the mouse position
+from a given frame, it would ensure that the selected frame was not a
+terminal frame.</p></li>
+</ol>
+
+<p>And that&rsquo;s all there was to it! I have been happily using multi-tty access in
+the Emacs Mac Port by applying these patches and compiling Emacs myself.</p>
+
+<p>Please note that I&rsquo;ve only been using this fix on Emacs 26.1, Mac Port 7.4. I
+don&rsquo;t yet know whether it will work on 26.2, but I&rsquo;ll update the article when I
+get around to it.</p>
+
+<p>For now, if you&rsquo;d like to apply this fix yourself, try the following
+instructions:</p>
+<div class="highlight"><pre class="highlight plaintext"><code>$ git clone https://bitbucket.org/mituharu/emacs-mac.git
+$ git checkout emacs-26.1-mac-7.4
+$ wget https://bitbucket.org/ylluminarious/emacs-mac-multi-tty/commits/6d23e90288d21546ed2551a7d14dec79ccb3dc13/raw -O patch1.diff
+$ wget https://bitbucket.org/ylluminarious/emacs-mac-multi-tty/commits/08874543cb806d0c2dc7b6b5c0f5f92836b7671a/raw -O patch2.diff
+$ git apply patch1.diff patch2.diff
+</code></pre></div>
+<p>Then compile &amp; install Emacs with your favorite configuration options. I
+personally prefer this little ditty (simple, but good enough for the Mac Port):</p>
+<div class="highlight"><pre class="highlight plaintext"><code>$ ./configure --with-modules --enable-mac-app --prefix=/Applications/Emacs.app/Contents/Resources &amp;&amp; make install
+</code></pre></div>
+<h2>Why hasn&rsquo;t it been merged yet?</h2>
+
+<p>Unfortunately, my fix hasn&rsquo;t been merged with the Emacs Mac Port yet <a href="https://lists.gnu.org/archive/html/emacs-devel/2018-01/msg00430.html" rel="nofollow">because
+there is a bug which exists on both the NS Port and the Emacs Mac
+Port</a>
+regarding multi-tty. In the words of the NS Port maintainer, Alan Third:</p>
+
+<blockquote>
+<p>[&hellip;] if you do this on the NS port <strong>[or on the Mac Port]</strong>:</p>
+
+<p> </p>
+
+<p>Open GUI instance</p>
+
+<p>start server</p>
+
+<p>run ‘emacsclient -t’ in the terminal</p>
+
+<p>close GUI frame</p>
+
+<p> </p>
+
+<p>You can’t open a new GUI frame, even though the GUI instance with the server
+  is still running. You can see it in the dock, and access the menus, but I
+  can’t find any way to create a new frame.</p>
+</blockquote>
+
+<p>Fortunately, <a href="https://github.com/DarwinAwardWinner/mac-pseudo-daemon" rel="nofollow">there is a nice package which works around this
+bug.</a> But in order for
+Mitsuharu Yamamoto to merge my changes into the Emacs Mac Port, he wanted this
+package to be merged into GNU Emacs proper rather than merging it into the Mac
+Port which could add an extra maintenance burden for him. Therefore, I went to
+the emacs-devel mailing list and proposed merging this package into GNU Emacs.
+But since then, life has gotten in the way and I have not advanced on this issue
+for about a year.</p>
+
+<p>I also had concerns in the past about whether I would need to sign <a href="https://www.gnu.org/prep/maintain/html_node/Copyright-Papers.html" rel="nofollow">FSF
+copyright
+papers</a> in
+order to get my work into GNU Emacs. However, if I recall correctly, Richard
+Stallman said to me that I could also put my work in the public domain for each
+individual contribution I made to Emacs. Still, life plus this concern has kept
+me from completing the proper fix for this issue and I wanted to document it in
+case I don&rsquo;t work on it for another year. Hopefully this isn&rsquo;t the case, but
+there&rsquo;s no harm in dumping my thoughts before I forget what the heck I was
+doing.</p>
+</section>
+<footer class='post-footer'>
+<section class='author'>
+<h4>
+<a href='/author/ylluminarious/'>ylluminarious</a>
+</h4>
+<p></p>
+I'm a software developer. I'm also the author of this blog.
+</section>
+<section class='share'>
+<h4>Share this post</h4>
+<a class='icon-twitter' href='https://twitter.com/intent/tweet?text=How to fix the Emacs Mac Port for multi-tty access&amp;amp;url=http://www.example.com/2019/05/23/how-to-fix-the-emacs-mac-port-for-multi-tty-access/' onclick='window.open(this.href, &#39;twitter-share&#39;, &#39;width=550,height=235&#39;);return false;'>
+<span class='hidden'>Twitter</span>
+</a>
+<a class='icon-facebook' href='https://www.facebook.com/sharer/sharer.php?u=http://www.example.com/2019/05/23/how-to-fix-the-emacs-mac-port-for-multi-tty-access/' onclick='window.open(this.href, &#39;facebook-share&#39;,&#39;width=580,height=296&#39;);return false;'>
+<span class='hidden'>Facebook</span>
+</a>
+<a class='icon-google-plus' href='https://plus.google.com/share?url=http://www.example.com/2019/05/23/how-to-fix-the-emacs-mac-port-for-multi-tty-access/' onclick='window.open(this.href, &#39;google-plus-share&#39;, &#39;width=490,height=530&#39;);return false;'>
+<span class='hidden'>Google+</span>
+</a>
+</section>
+</footer>
+</article>
+</main>
+<aside class='read-next'>
+<a class='no-cover read-next-story' href='/2019/04/29/about/'>
+<section class='post'>
+<h2>About</h2>
+<p>Hello! Welcome to my blog. I am a software developer who enjoys making new things and I would like&hellip;</p>
+</section>
+</a>
+<a class='no-cover prev read-next-story' href='/2019/05/23/emacs-mac-port-introduction/'>
+<section class='post'>
+<h2>Emacs Mac Port Introduction</h2>
+<p>Valuable Features &amp; Improvements The Emacs Mac Port is an excellent distribution of Emacs which greatly improves Emacs&rsquo; functionality&hellip;</p>
+</section>
+</a>
+</aside>
+
+<footer class='site-footer clearfix'>
+<section class='copyright'>
+<a href='/'>ylluminarious</a>
+&copy;
+2019
+</section>
+<section class='poweredby'>
+Casper theme powered by
+<a href='https://ghost.org'>Ghost</a>
+</section>
+</footer>
+</div>
+<script src="/javascripts/application.js"></script>
+</body>
+</html>
