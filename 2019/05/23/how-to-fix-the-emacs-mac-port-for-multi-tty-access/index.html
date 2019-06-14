@@ -133,10 +133,9 @@ get around to it.</p>
 <p><strong>UPDATE:</strong> I&rsquo;ve now tested this fix on Emacs 26.2, Mac Port 7.6 which is the
 most recent stable version at this time. It still works fine. Note to self:
 <a href="/2019/06/13/how-i-solved-a-cryptic-emacs-dumping-error/" rel="nofollow">read this article</a> if
-you have compilation errors which say something like <code>unexec: not enough room
-for load commands for new __DATA segments (increase headerpad_extra in
-configure.in to at least 1488)</code></p>
-
+you have compilation errors which say something like:</p>
+<div class="highlight"><pre class="highlight plaintext"><code>unexec: not enough room for load commands for new __DATA segments (increase headerpad_extra in configure.in to at least 1488)
+</code></pre></div>
 <p>For now, if you&rsquo;d like to apply this fix yourself, try the following
 instructions:</p>
 <div class="highlight"><pre class="highlight plaintext"><code>$ git clone https://bitbucket.org/mituharu/emacs-mac.git
