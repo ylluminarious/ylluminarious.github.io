@@ -16,8 +16,8 @@ excellent distribution of Emacs which greatly improves Emacs' functionality on
 macOS. It adds native GUI support which provides a slew of nice features. It's
 developed and maintained by Mitsuharu Yamamoto and it regularly pulls changes
 from GNU Emacs proper, thus staying up-to-date with it. [I've written a fuller
-article here](/2019/05/23/emacs-mac-port-introduction/) which provides a
-general introduction to the Emacs Mac Port and why I like it.
+article here](/2019/05/23/emacs-mac-port-introduction/) which provides a general
+introduction to the Emacs Mac Port and why I like it.
 
 The bug
 -------
@@ -79,12 +79,20 @@ Please note that I've only been using this fix on Emacs 26.1, Mac Port 7.4. I
 don't yet know whether it will work on 26.2, but I'll update the article when I
 get around to it.
 
+**UPDATE:** I've now tested this fix on Emacs 26.2, Mac Port 7.6 which is the
+most recent stable version at this time. It still works fine. Note to self:
+[read this article](/2019/06/13/how-i-solved-a-cryptic-emacs-dumping-error/) if
+you have compilation errors which say something like `unexec: not enough room
+for load commands for new __DATA segments (increase headerpad_extra in
+configure.in to at least 1488)`
+
 For now, if you'd like to apply this fix yourself, try the following
 instructions:
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 $ git clone https://bitbucket.org/mituharu/emacs-mac.git
-$ git checkout emacs-26.1-mac-7.4
+$ cd emacs-mac
+$ git checkout emacs-26.2-mac-7.6
 $ wget https://bitbucket.org/ylluminarious/emacs-mac-multi-tty/commits/6d23e90288d21546ed2551a7d14dec79ccb3dc13/raw -O patch1.diff
 $ wget https://bitbucket.org/ylluminarious/emacs-mac-multi-tty/commits/08874543cb806d0c2dc7b6b5c0f5f92836b7671a/raw -O patch2.diff
 $ git apply patch1.diff patch2.diff
