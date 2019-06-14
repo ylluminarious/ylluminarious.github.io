@@ -47,8 +47,8 @@ since this error was difficult to solve and the only fix I found was on an
 obscure Japanese messageboard, it might be a good idea to document this problem
 in a better format and in English.
 
-Out of curiosity as to why this works, here's an excerpt from [man
-ld:](https://www.unix.com/man-page/OSX/1/ld/)
+Out of curiosity as to why this works, here's an excerpt from [`man
+ld`:](https://www.unix.com/man-page/OSX/1/ld/)
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
      -headerpad_max_install_names
