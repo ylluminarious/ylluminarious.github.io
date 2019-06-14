@@ -2,7 +2,7 @@
 
 title: How to fix the Emacs Mac Port for multi-tty access
 date: 2019-05-23 20:37 UTC
-tags: emacs, emacs-mac-port, multi-tty, fix
+tags:
 
 ---
 
