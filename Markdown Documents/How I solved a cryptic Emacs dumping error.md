@@ -47,7 +47,8 @@ since this error was difficult to solve and the only fix I found was on an
 obscure Japanese messageboard, it might be a good idea to document this problem
 in a better format and in English.
 
-Out of curiosity as to why this works, here's an excerpt from [`man ld`:](job%20=%20ImportJob.perform_later%20path.to_s%20current_spree_user.update(job_id:%20job.provider_job_id))
+Out of curiosity as to why this works, here's an excerpt from [man
+ld:](https://www.unix.com/man-page/OSX/1/ld/)
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
      -headerpad_max_install_names
