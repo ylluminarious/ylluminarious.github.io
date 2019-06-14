@@ -1,32 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://www.example.com/2019/06/13/how-i-solved-a-cryptic-emacs-dumping-error/index.html</loc>
+    <lastmod>2019-06-13T20:00:47-04:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>http://www.example.com/2019/04/29/about/index.html</loc>
-    <lastmod>2019-05-18T20:23:14-04:00</lastmod>
+    <lastmod>2019-06-13T15:36:45-04:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://www.example.com/2019/05/23/how-to-fix-the-emacs-mac-port-for-multi-tty-access/index.html</loc>
-    <lastmod>2019-05-27T17:15:02-04:00</lastmod>
+    <lastmod>2019-06-13T20:00:56-04:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://www.example.com/2019/05/23/emacs-mac-port-introduction/index.html</loc>
-    <lastmod>2019-05-27T17:15:02-04:00</lastmod>
+    <lastmod>2019-06-13T20:01:02-04:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://www.example.com/index.html</loc>
-    <lastmod>2019-05-27T17:17:50-04:00</lastmod>
+    <lastmod>2019-06-13T20:06:13-04:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://www.example.com/author/ylluminarious/index.html</loc>
-    <lastmod>2019-05-27T17:17:50-04:00</lastmod>
+    <lastmod>2019-06-13T20:06:13-04:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>

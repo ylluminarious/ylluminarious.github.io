@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>ylluminarious: How I solved a cryptic Emacs dumping error</title>
+<meta content='Background While I was trying to compile Emacs to test a fix, I ran into a compilation error. This error occurred during Emacs&amp;rsquo; dump phase...' name='description'>
+<meta charset='utf-8'>
+<meta content='width=device-width, initial-scale=1.0' name='viewport'>
+<meta content='IE=edge' http-equiv='X-UA-Compatible'>
+<meta content='True' name='HandheldFriendly'>
+<meta content='ylluminarious' property='og:site_name'>
+<meta content='article' property='og:type'>
+<meta content='How I solved a cryptic Emacs dumping error' property='og:title'>
+<meta content='Background While I was trying to compile Emacs to test a fix, I ran into a compilation error. This error occurred during Emacs&amp;rsquo; dump phase...' property='og:description'>
+<meta content='http://www.example.com/2019/06/13/how-i-solved-a-cryptic-emacs-dumping-error/' property='og:url'>
+<meta content='2019-06-13' property='article:published_time'>
+<meta content='summary' name='twitter:card'>
+<meta content='How I solved a cryptic Emacs dumping error' name='twitter:title'>
+<meta content='Background While I was trying to compile Emacs to test a fix, I ran into a compilation error. This error occurred during Emacs&amp;rsquo; dump phase...' name='twitter:description'>
+<meta content='http://www.example.com/2019/06/13/how-i-solved-a-cryptic-emacs-dumping-error/' name='twitter:url'>
+<link rel="alternate" type="application/atom+xml" title="Atom Feed" href="/feed.xml" />
+<link href="/images/favicon.ico" rel="icon" type="image/ico" />
+<link href='//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400' rel='stylesheet' type='text/css'>
+<link href="/stylesheets/application.css" rel="stylesheet" />
+</head>
+<body class='post-template nav-closed'>
+<div class='nav'>
+<h3 class='nav-title'>Menu</h3>
+<a class='nav-close' href='#'>
+<span class='hidden'>Close</span>
+</a>
+<ul>
+<li class='nav-home'>
+<a href='/'>Home</a>
+</li>
+<li class='nav-about'>
+<a href='/2019/04/29/about/'>About</a>
+</li>
+</ul>
+<a class='subscribe-button icon-feed' href='/feed.xml'>Subscribe</a>
+</div>
+<span class='nav-cover'></span>
+
+<div class='site-wrapper'>
+<header class='main-header no-cover post-head'>
+<nav class='main-nav clearfix'>
+<a class='blog-logo' href='/'>
+<img src="/images/the-star-sun-faded-edges.png" alt="ylluminarious" />
+</a>
+<a class='menu-button icon-menu' href='#'>
+<span class='word'>Menu</span>
+</a>
+</nav>
+</header>
+<main class='content' role='main'>
+<article class='post'>
+<header class='post-header'>
+<h1 class='post-title'>How I solved a cryptic Emacs dumping error</h1>
+<section class='post-meta'>
+<time class='post-date' datetime='2019-06-13'>
+13 June 2019
+</time>
+</section>
+</header>
+<section class='post-content'><h2>Background</h2>
+
+<p>While I was trying to compile Emacs <a href="/2019/05/23/how-to-fix-the-emacs-mac-port-for-multi-tty-access/" rel="nofollow">to test a
+fix,</a> I ran
+into a compilation error. This error occurred during <a href="http://emacshorrors.com/posts/unexecute.html" rel="nofollow">Emacs&rsquo; dump
+phase</a> and it said:</p>
+<div class="highlight"><pre class="highlight plaintext"><code>unexec: not enough room for load commands for new __DATA segments (increase headerpad_extra in configure.in to at least 1488)
+</code></pre></div>
+<p>I followed this error&rsquo;s advice and I kept increasing the value for
+<code>headerpad_extra</code> in <code>configure.ac</code>. But each time I did so, it still kept
+throwing the same error, just with different values like <code>1638</code>, <code>13F8</code>, <code>1518</code>,
+etc. I eventually doubled the value of <code>headerpad_extra</code> to <code>2000</code>, but no luck.
+I eventually realized that bumping this value would do no good, so I searched
+around for a solution.</p>
+
+<p>Initially, I didn&rsquo;t find much. I found old mailing list threads for unrelated
+issues, as well as bug reports for package managers. I also guessed that the
+error might have something to do with my OS, which is macOS Mojave at the time
+of this writing, but adding this to my search terms did not help. Finally, by
+sheer luck, I stumbled upon <a href="http://anago.2ch.sc/test/read.cgi/mac/1328699139/" rel="nofollow">a Japanese messageboard
+thread</a> which had a fix for
+this error:</p>
+<div class="highlight"><pre class="highlight plaintext"><code>LDFLAGS = -headerpad_max_install_names ./configure [your options go here]
+</code></pre></div>
+<p>I decided to <code>export</code> the <code>LDFLAGS</code> for the entire compilation process (just to
+be safe):</p>
+<div class="highlight"><pre class="highlight plaintext"><code>$ export LDFLAGS=-headerpad_max_install_names
+$ echo $LDFLAGS
+-headerpad_max_install_names
+$ ./configure --with-modules --enable-mac-app --prefix=/Applications/Emacs.app/Contents/Resources &amp;&amp; make install
+</code></pre></div>
+<p>And lo and behold, it worked. No more strange dumping errors. I figured that
+since this error was difficult to solve and the only fix I found was on an
+obscure Japanese messageboard, it might be a good idea to document this problem
+in a better format and in English.</p>
+
+<p>Out of curiosity as to why this works, here&rsquo;s an excerpt from <a href="job%20=%20ImportJob.perform_later%20path.to_s%20current_spree_user.update(job_id:%20job.provider_job_id)" rel="nofollow"><code>man ld</code>:</a></p>
+<div class="highlight"><pre class="highlight plaintext"><code>     -headerpad_max_install_names
+                 Automatically adds space for future expansion of load commands such that all paths could expand to MAXPATHLEN.
+                 Only useful if intend to run install_name_tool to alter the load commands later.
+</code></pre></div>
+<p>This still doesn&rsquo;t explain it completely and I&rsquo;m not 100% sure as to what was
+wrong here and why this solution worked, but it did so I&rsquo;m not complaining.</p>
+</section>
+<footer class='post-footer'>
+<section class='author'>
+<h4>
+<a href='/author/ylluminarious/'>ylluminarious</a>
+</h4>
+<p></p>
+I'm a software developer. I'm also the author of this blog.
+</section>
+<section class='share'>
+<h4>Share this post</h4>
+<a class='icon-twitter' href='https://twitter.com/intent/tweet?text=How I solved a cryptic Emacs dumping error&amp;amp;url=http://www.example.com/2019/06/13/how-i-solved-a-cryptic-emacs-dumping-error/' onclick='window.open(this.href, &#39;twitter-share&#39;, &#39;width=550,height=235&#39;);return false;'>
+<span class='hidden'>Twitter</span>
+</a>
+<a class='icon-facebook' href='https://www.facebook.com/sharer/sharer.php?u=http://www.example.com/2019/06/13/how-i-solved-a-cryptic-emacs-dumping-error/' onclick='window.open(this.href, &#39;facebook-share&#39;,&#39;width=580,height=296&#39;);return false;'>
+<span class='hidden'>Facebook</span>
+</a>
+<a class='icon-google-plus' href='https://plus.google.com/share?url=http://www.example.com/2019/06/13/how-i-solved-a-cryptic-emacs-dumping-error/' onclick='window.open(this.href, &#39;google-plus-share&#39;, &#39;width=490,height=530&#39;);return false;'>
+<span class='hidden'>Google+</span>
+</a>
+</section>
+</footer>
+</article>
+</main>
+<aside class='read-next'>
+<a class='no-cover read-next-story' href='/2019/05/23/emacs-mac-port-introduction/'>
+<section class='post'>
+<h2>Emacs Mac Port Introduction</h2>
+<p>Valuable Features &amp; Improvements The Emacs Mac Port is an excellent distribution of Emacs which greatly improves Emacs&rsquo; functionality&hellip;</p>
+</section>
+</a>
+</aside>
+
+<footer class='site-footer clearfix'>
+<section class='copyright'>
+<a href='/'>ylluminarious</a>
+&copy;
+2019
+</section>
+<section class='poweredby'>
+Casper theme powered by
+<a href='https://ghost.org'>Ghost</a>
+</section>
+</footer>
+</div>
+<script src="/javascripts/application.js"></script>
+</body>
+</html>

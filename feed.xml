@@ -5,16 +5,33 @@
   <id>http://www.example.com</id>
   <link href="http://www.example.com"/>
   <link href="http://www.example.com/feed.xml" rel="self"/>
-  <updated>2019-05-23T16:38:00-04:00</updated>
+  <updated>2019-06-13T15:00:00-04:00</updated>
   <author>
     <name>ylluminarious</name>
   </author>
+  <entry>
+    <title>How I solved a cryptic Emacs dumping error</title>
+    <link rel="alternate" href="http://www.example.com/2019/06/13/how-i-solved-a-cryptic-emacs-dumping-error/"/>
+    <id>http://www.example.com/2019/06/13/how-i-solved-a-cryptic-emacs-dumping-error/</id>
+    <published>2019-06-13T15:00:00-04:00</published>
+    <updated>2019-06-13T20:00:47-04:00</updated>
+    <author>
+      <name>ylluminarious</name>
+    </author>
+    <summary type="html">Background
+
+While I was trying to compile Emacs to test a
+fix, I ran
+into a compilation error. This error occurred during Emacs’ dump
+phase and it said:
+unexec: not enough room for load commands for new __DATA segments (increase headerpad_extra in configure</summary>
+  </entry>
   <entry>
     <title>Emacs Mac Port Introduction</title>
     <link rel="alternate" href="http://www.example.com/2019/05/23/emacs-mac-port-introduction/"/>
     <id>http://www.example.com/2019/05/23/emacs-mac-port-introduction/</id>
     <published>2019-05-23T16:38:00-04:00</published>
-    <updated>2019-05-27T17:15:02-04:00</updated>
+    <updated>2019-06-13T20:01:02-04:00</updated>
     <author>
       <name>ylluminarious</name>
     </author>
@@ -31,7 +48,7 @@ would like to name some of those features</summary>
     <link rel="alternate" href="http://www.example.com/2019/05/23/how-to-fix-the-emacs-mac-port-for-multi-tty-access/"/>
     <id>http://www.example.com/2019/05/23/how-to-fix-the-emacs-mac-port-for-multi-tty-access/</id>
     <published>2019-05-23T16:37:00-04:00</published>
-    <updated>2019-05-27T17:15:02-04:00</updated>
+    <updated>2019-06-13T20:00:56-04:00</updated>
     <author>
       <name>ylluminarious</name>
     </author>
@@ -48,7 +65,7 @@ developed and maintained by Mitsuharu</summary>
     <link rel="alternate" href="http://www.example.com/2019/04/29/about/"/>
     <id>http://www.example.com/2019/04/29/about/</id>
     <published>2019-04-29T12:46:00-04:00</published>
-    <updated>2019-05-18T20:23:14-04:00</updated>
+    <updated>2019-06-13T15:36:45-04:00</updated>
     <author>
       <name>ylluminarious</name>
     </author>
