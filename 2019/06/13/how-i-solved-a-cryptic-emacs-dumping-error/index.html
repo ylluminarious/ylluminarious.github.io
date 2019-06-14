@@ -79,8 +79,11 @@ around for a solution.</p>
 <p>Initially, I didn&rsquo;t find much. I found old mailing list threads for unrelated
 issues, as well as bug reports for package managers. I also guessed that the
 error might have something to do with my OS, which is macOS Mojave at the time
-of this writing, but adding this to my search terms did not help. Finally, by
-sheer luck, I stumbled upon <a href="http://anago.2ch.sc/test/read.cgi/mac/1328699139/" rel="nofollow">a Japanese messageboard
+of this writing, but adding this to my search terms did not help.</p>
+
+<h2>The Fix</h2>
+
+<p>Finally, by sheer luck, I stumbled upon <a href="http://anago.2ch.sc/test/read.cgi/mac/1328699139/" rel="nofollow">a Japanese messageboard
 thread</a> which had a fix for
 this error:</p>
 <div class="highlight"><pre class="highlight plaintext"><code>LDFLAGS = -headerpad_max_install_names ./configure [your options go here]
@@ -97,7 +100,8 @@ since this error was difficult to solve and the only fix I found was on an
 obscure Japanese messageboard, it might be a good idea to document this problem
 in a better format and in English.</p>
 
-<p>Out of curiosity as to why this works, here&rsquo;s an excerpt from <a href="https://www.unix.com/man-page/OSX/1/ld/" rel="nofollow"><code>man ld</code>:</a></p>
+<p>Out of curiosity as to why this works, here&rsquo;s an excerpt from <a href="https://www.unix.com/man-page/OSX/1/ld/" rel="nofollow">man
+ld:</a></p>
 <div class="highlight"><pre class="highlight plaintext"><code>     -headerpad_max_install_names
                  Automatically adds space for future expansion of load commands such that all paths could expand to MAXPATHLEN.
                  Only useful if intend to run install_name_tool to alter the load commands later.
