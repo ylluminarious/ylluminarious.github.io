@@ -29,8 +29,12 @@ around for a solution.
 Initially, I didn't find much. I found old mailing list threads for unrelated
 issues, as well as bug reports for package managers. I also guessed that the
 error might have something to do with my OS, which is macOS Mojave at the time
-of this writing, but adding this to my search terms did not help. Finally, by
-sheer luck, I stumbled upon [a Japanese messageboard
+of this writing, but adding this to my search terms did not help.
+
+The Fix
+-------
+
+Finally, by sheer luck, I stumbled upon [a Japanese messageboard
 thread](http://anago.2ch.sc/test/read.cgi/mac/1328699139/) which had a fix for
 this error:
 
@@ -53,7 +57,8 @@ since this error was difficult to solve and the only fix I found was on an
 obscure Japanese messageboard, it might be a good idea to document this problem
 in a better format and in English.
 
-Out of curiosity as to why this works, here's an excerpt from [`man ld`:](https://www.unix.com/man-page/OSX/1/ld/)
+Out of curiosity as to why this works, here's an excerpt from [man
+ld:](https://www.unix.com/man-page/OSX/1/ld/)
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
      -headerpad_max_install_names
