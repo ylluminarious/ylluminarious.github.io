@@ -14,7 +14,7 @@
     <link rel="alternate" href="http://www.example.com/2019/06/13/how-i-solved-a-cryptic-emacs-dumping-error/"/>
     <id>http://www.example.com/2019/06/13/how-i-solved-a-cryptic-emacs-dumping-error/</id>
     <published>2019-06-13T15:00:00-04:00</published>
-    <updated>2019-06-13T21:00:18-04:00</updated>
+    <updated>2019-07-29T05:30:40-04:00</updated>
     <author>
       <name>ylluminarious</name>
     </author>
@@ -31,7 +31,7 @@ unexec: not enough room for load commands for new __DATA segments (increase head
     <link rel="alternate" href="http://www.example.com/2019/05/23/emacs-mac-port-introduction/"/>
     <id>http://www.example.com/2019/05/23/emacs-mac-port-introduction/</id>
     <published>2019-05-23T16:38:00-04:00</published>
-    <updated>2019-06-13T20:01:02-04:00</updated>
+    <updated>2019-07-29T05:30:40-04:00</updated>
     <author>
       <name>ylluminarious</name>
     </author>
@@ -48,7 +48,7 @@ would like to name some of those features</summary>
     <link rel="alternate" href="http://www.example.com/2019/05/23/how-to-fix-the-emacs-mac-port-for-multi-tty-access/"/>
     <id>http://www.example.com/2019/05/23/how-to-fix-the-emacs-mac-port-for-multi-tty-access/</id>
     <published>2019-05-23T16:37:00-04:00</published>
-    <updated>2019-06-13T20:26:32-04:00</updated>
+    <updated>2019-07-29T05:30:40-04:00</updated>
     <author>
       <name>ylluminarious</name>
     </author>
