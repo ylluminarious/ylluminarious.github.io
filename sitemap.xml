@@ -8,7 +8,7 @@
   </url>
   <url>
     <loc>http://www.example.com/2019/04/29/about/index.html</loc>
-    <lastmod>2019-06-13T15:36:45-04:00</lastmod>
+    <lastmod>2019-07-29T05:38:45-04:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -26,49 +26,55 @@
   </url>
   <url>
     <loc>http://www.example.com/index.html</loc>
-    <lastmod>2019-07-29T05:36:41-04:00</lastmod>
+    <lastmod>2019-07-29T05:39:18-04:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://www.example.com/author/ylluminarious/index.html</loc>
-    <lastmod>2019-07-29T05:36:41-04:00</lastmod>
+    <lastmod>2019-07-29T05:39:18-04:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://www.example.com/tag/emacs/index.html</loc>
-    <lastmod>2019-07-29T05:36:41-04:00</lastmod>
+    <lastmod>2019-07-29T05:39:18-04:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://www.example.com/tag/fix/index.html</loc>
-    <lastmod>2019-07-29T05:36:41-04:00</lastmod>
+    <lastmod>2019-07-29T05:39:18-04:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://www.example.com/tag/compilation/index.html</loc>
-    <lastmod>2019-07-29T05:36:41-04:00</lastmod>
+    <lastmod>2019-07-29T05:39:18-04:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://www.example.com/tag/unix/index.html</loc>
-    <lastmod>2019-07-29T05:36:41-04:00</lastmod>
+    <lastmod>2019-07-29T05:39:18-04:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://www.example.com/tag/emacs-mac-port/index.html</loc>
-    <lastmod>2019-07-29T05:36:41-04:00</lastmod>
+    <lastmod>2019-07-29T05:39:18-04:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://www.example.com/tag/multi-tty/index.html</loc>
-    <lastmod>2019-07-29T05:36:41-04:00</lastmod>
+    <lastmod>2019-07-29T05:39:18-04:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://www.example.com/tag/meta/index.html</loc>
+    <lastmod>2019-07-29T05:39:18-04:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
