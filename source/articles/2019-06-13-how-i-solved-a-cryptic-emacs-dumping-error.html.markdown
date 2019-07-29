@@ -2,7 +2,7 @@
 
 title: How I solved a cryptic Emacs dumping error
 date: 2019-06-13 19:00 UTC
-tags:
+tags: emacs, fix, compilation, unix
 
 ---
 

@@ -2,7 +2,7 @@
 
 title: Emacs Mac Port Introduction
 date: 2019-05-23 20:38 UTC
-tags:
+tags: emacs, emacs-mac-port
 
 ---
 
