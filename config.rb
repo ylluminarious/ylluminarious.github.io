@@ -67,10 +67,12 @@ tags = resources
   .select { |resource| resource.data.tags }
   .each_with_object({}, &method(:group_lookup))
 
-tags.each do |tag, articles|
-  proxy "/tag/#{tag.downcase.to_s.parameterize}/feed.xml", "/feed.xml",
-    locals: { tag: tag, articles: articles[0..5] }, layout: false
-end
+# Feed.xml seems to break tags... should probably investigate this someday. For
+# now, I'm just going to disable it by commenting it out here.
+# tags.each do |tag, articles|
+#   proxy "/tag/#{tag.downcase.to_s.parameterize}/feed.xml", "/feed.xml",
+#     locals: { tag: tag, articles: articles[0..5] }, layout: false
+# end
 
 proxy "/author/#{config.casper[:author][:name].parameterize}.html",
   "/author.html", ignore: true
